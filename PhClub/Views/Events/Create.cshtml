@@ -1,0 +1,135 @@
+﻿@model PhClub.Models.Event
+@{
+    ViewBag.Title = "Добавить мероприятие";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head
+{
+    <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen" type="text" />
+    <link href="/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+}
+@section scripts
+{
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+    <script src="/scripts/jquery.min.js"></script>
+    <script src="/scripts/jquery-1.6.4.min.js "></script>
+    <script src="/scripts/bootstrap.min.js"></script>
+    <script src="/scripts/bootstrap-datetimepicker.*js"></script> 
+    @*<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjUJOjP6xOi0mlhFiyzWDKCVb6ryYlSL0&callback=initMap"
+        type="text/javascript"></script>*@
+    @*<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjUJOjP6xOi0mlhFiyzWDKCVb6ryYlSL0&libraries=places"></script>*@
+    <script>
+        $(function () {
+            $('#datetimepicker').datetimepicker({
+                format: 'DD/MM/YYYY HH:mm',
+                //language: "ru",
+                //autoclose: true,
+                //todayHighlight: true
+  
+            });
+
+        });
+    </script>
+
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Event</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title)
+                @Html.ValidationMessageFor(model => model.Title)
+            </div>
+        </div>
+        
+            <div class="form-group">
+                @Html.LabelFor(model => model.Date, new { @class = "control-label col-md-2" })
+                <div class="col-sm-4">
+                    <div class='input-group date' id='datetimepicker'>
+                        @Html.TextBoxFor(model => model.Date, new { @class = "form-control datetimepicker ", placeholder = "Выберите дату" })
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                        @Html.ValidationMessageFor(model => model.Date)
+                    </div>
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.Time, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Time)
+                    @Html.ValidationMessageFor(model => model.Time)
+                </div>
+            </div>*@
+        @*<div id="googlemap">
+                <form method="post">
+                    <fieldset>
+                        <div>
+                            <label for="address">Address:</label>
+                            <input style="width: 300px" type="text" name="address" value="@Request["Location"]" />
+                            <input type="submit" value="Map It!" />
+                        </div>
+                    </fieldset>
+                </form>
+                @if (IsPost)
+                {
+                    @Maps.GetGoogleHtml(Request.Form["address"],
+                    width: "400",
+                    height: "400")
+                }   
+            </div>*@
+            <div class="form-group">
+                @Html.LabelFor(model => model.Location, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Location)
+                    @Html.ValidationMessageFor(model => model.Location)
+                </div>
+            </div>
+            @*<div id="map_canvas" style="width: 640px; height: 480px;"></div>*@
+            <div class="form-group">
+                @Html.LabelFor(model => model.Responsible, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Responsible)
+                    @Html.ValidationMessageFor(model => model.Responsible)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Description)
+                    @Html.ValidationMessageFor(model => model.Description)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Keywords, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Keywords)
+                    @Html.ValidationMessageFor(model => model.Keywords)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+    @Scripts.Render("~/bundles/jqueryval")

@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Мероприятия";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p> <h3>Тут представлены актуальные мероприятия Философского клуба. Эти мероприятия будут интересны тем, кто ищет ответы, хочет узнать больше о себе, мире и новых возможностях жизни наполненной высокими целями и смыслами.</h3></p>
+<p> Всегда рады всем устремленным к новым горизонтам!</p>
+@foreach (var b in ViewBag.Events)
+{
+    <div id="paragrahp">
+    <p><h2>@b.Date</h2></p>
+    <table>
+
+        <p></p>
+        @*<tr>
+
+            <td style=" padding: 8px;"><p><h2>@b.Date</h2></p></td>
+            @*<td style=" padding: 8px;"><p><h2>@b.Time</h2></p></td>
+        </tr>*@
+        <tr>
+            <td style="border: solid 1px grey; color: red; text-align: center; "><p><h3>Адрес</h3></p></td>
+            <td style="border: solid 1px grey; color: red; text-align: center; "><p><h3>Название мероприятия</h3></p></td>
+            <td style="border: solid 1px grey; color: red; text-align: center; "><p><h3>Ведущий</h3></p></td>
+        </tr>
+        <tr>
+            
+            <td style="border: solid 1px grey; padding: 8px; background-color: #ddc9ee; "><p><h4>@b.Location</h4></p></td>
+            <td style="border: solid 1px grey; padding: 8px; background-color: #ddc9ee;"><p><h4><a href=@Url.Action("Event", new { id = b.Id })>@b.Title</a></h4></p></td>
+            <td style="border: solid 1px grey; padding: 8px; background-color: #ddc9ee; "><p><h4>@b.Responsible</h4></p></td>
+            
+        </tr>
+
+    </table>
+        </div>
+}
+
+
