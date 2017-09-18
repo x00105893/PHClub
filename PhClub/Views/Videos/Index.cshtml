@@ -1,0 +1,64 @@
+﻿@model IEnumerable<PhClub.Models.Video>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Индекс видео новостей</h2>
+
+<p>
+    @Html.ActionLink("Добавить видео новость", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Название
+        </th>
+       
+        <th>
+            Ссылка на видео
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.VideoLink)
+        </td>
+        <td>
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Детали", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+
+ @section SideBar{
+<h4>Быстрая навигация по категориям</h4>
+
+<ul style="list-style: none;">
+
+    <li> @Html.ActionLink("Астрономия и космос", "SearchMedia", new { searchString = "Astronomy" })</li>
+    <li> @Html.ActionLink("Мир вокруг нас", "SearchMedia", new { searchString = "World" })</li>
+    <li> @Html.ActionLink("Фильмы, видео", "SearchMedia", new { searchString = "Movies" })</li>
+    <li> @Html.ActionLink("Новости", "SearchMedia", new { searchString = "News" })</li>
+    <li> @Html.ActionLink("Частное мнение", "SearchMedia", new { searchString = "Opinion" })</li>
+    <li> @Html.ActionLink("Здоровье", "SearchMedia", new { searchString = "Health" })</li>
+    <li> @Html.ActionLink("Достижения Науки", "SearchMedia", new { searchString = "Science" })</li>
+    <li> @Html.ActionLink("Интересно", "SearchMedia", new { searchString = "Interesting" })</li>
+    <li> @Html.ActionLink("История", "SearchMedia", new { searchString = "History" })</li>
+    <li> @Html.ActionLink("Происшествия", "SearchMedia", new { searchString = "Accidents" })</li>
+    <li> @Html.ActionLink("Удивительное рядом", "SearchMedia", new { searchString = "Amazing" })</li>
+    <li> @Html.ActionLink("Философия Синтеза", "SearchMedia", new { searchString = "Philosophy_of_Synthesis" })</li>
+    <li> @Html.ActionLink("Философские Чтения Синтеза", "SearchMedia", new { searchString = "FChS" })</li>
+    <li> @Html.ActionLink("Юмор", "SearchMedia", new { searchString = "Humour" })</li>
+</ul>
+}
+

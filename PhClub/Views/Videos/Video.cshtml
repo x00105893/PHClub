@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Video";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="video">
+        @*<div style="float: right; margin: 10px 10px 25px 25px; height: 315px; width: 560px; ">
+            
+        </div>*@
+    <iframe src=@Html.Raw(Model.VideoLink) width="560" height="315" frameborder="0" @*allowfullscreen="1"*@></iframe>
+    
+</div>
+<div>
+    <p>
+        <h2>@Html.Raw(Model.Title)</h2>
+    </p>
+    <p>
+        @Html.Raw(Model.Description)
+        @Html.Raw(Model.Body)
+    </p>
+</div>
+
+    @*<iframe src=@Html.Raw(Model.VideoLink) width="560" height="315" frameborder="0" allowfullscreen="1"></iframe>*@
+   
+

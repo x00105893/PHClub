@@ -1,0 +1,31 @@
+﻿@model PhClub.Models.Media
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Просмотр новости</h2>
+
+<div>
+    <p>
+        <strong> Название:</strong>
+        <br>
+        @Html.DisplayFor(model => model.title)
+    </p>
+    <p>
+        <strong>Краткое описание:</strong>
+        <br>
+        @Html.DisplayFor(model => model.description)
+    </p>
+
+    <p>
+        <strong>Статья:</strong>
+        <br>
+        @Html.DisplayFor(model => model.body)
+    </p>
+
+</div>
+<p>
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Назад к списку новостей", "Index")
+</p>

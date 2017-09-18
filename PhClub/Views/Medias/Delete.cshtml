@@ -1,0 +1,41 @@
+﻿@model PhClub.Models.Media
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удаление</h2>
+
+<h3>Вы уверены что хотите удалить эту статью?</h3>
+<div>
+    
+    <hr />
+    <div>
+        <p>
+           <strong> Название:</strong>
+            <br>
+            @Html.DisplayFor(model => model.title)
+        </p>
+        <p>
+            <strong>Краткое описание:</strong>
+            <br>
+            @Html.DisplayFor(model => model.description)
+        </p>
+
+        <p>
+           <strong>Статья:</strong>
+                <br>
+                @Html.DisplayFor(model => model.body)
+        </p>
+
+    </div>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Назад к списку новостей", "Index")
+        </div>
+    }
+</div>

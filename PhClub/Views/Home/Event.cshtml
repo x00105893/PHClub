@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = @Model.Title;
+}
+
+<h2>@Model.Title</h2>
+<br>
+
+<div class="event">
+    <p>
+        <strong>Дата и время:</strong>
+        <br>
+        @Html.Raw(Model.Date)
+        @*@Html.Raw(Model.Time)*@
+    </p>
+    <p>
+        <strong> Местоположение: </strong>  
+        <br>          
+        @Html.Raw(Model.Location)
+    </p>
+    <p>
+        <strong> Ведущий мероприятие:</strong>
+        <br>
+        @Html.Raw(Model.Responsible)
+    </p>
+    <p>
+        <strong>Краткое описание:</strong>
+        <br>
+         @Html.Raw(Model.Description)
+    </p>
+    <p>
+        <strong>Ключевые слова:</strong>
+        <br>
+        @Html.Raw(Model.Keywords) 
+    </p>
+</div>
+

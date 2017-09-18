@@ -1,0 +1,90 @@
+﻿@*@model PhClub.Models.MediaViewModel*@
+@model IEnumerable<PhClub.Models.Media>
+@{
+    ViewBag.Title = "Результат фильтра";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var b in Model)
+{ 
+    <div id="medias" style="border-bottom-color:grey">     
+        @if (!string.IsNullOrEmpty(b.ImagePath))
+        {
+        <div style="float: right; margin: 10px 10px 25px 25px; height: 100px; width:150px">
+            <div id="imageContainer">
+                @*@Html.Raw(Model.ImagePath)*@
+                <img src="~/Images/@Html.Raw(b.ImagePath)" style='height: 100%; width: 100%;' />
+            </div>
+        </div>
+        }
+
+         <p>
+             <h3> <a href=@Url.Action("Media", new { id = b.Id }) >@b.title </a></h3>
+            @b.description
+        </p>
+        <table class="customtable">
+            <tr>
+                <th>
+                    <h5><a href=@Url.Action("SearchMedia", new { searchString = @Html.Raw(b.TagsEnum) })>@Html.Raw(b.TagsEnum)</a> </h5>
+
+                </th>
+                @*<th>
+                    Добавил:
+                </th>*@
+                <th>
+                    <h5><i>@Html.Raw(b.NewsDate) </i></h5>
+                </th>
+                @*<th>
+                    <h5>Просмотров:</h5>
+                </th>*@
+                @*<th>
+                    <h5>Комментарии:</h5>
+                </th>*@
+            </tr>
+        </table>
+    </div>
+}
+
+
+
+
+@section SideBar{
+<link href="@Url.Content("~/Content/List.css")" rel="stylesheet" type="text/css" />
+
+<ul id="list" style:"none">
+
+    <li id="cust"> <i>@Html.ActionLink("Астрономия и космос", "SearchMedia", new { searchString = "Astronomy" })</i></li>
+    <li id="cust"> <i>@Html.ActionLink("Мир вокруг нас", "SearchMedia", new { searchString = "World" })</i></li>
+    <li id="cust"> <i>@Html.ActionLink("Фильмы, видео", "SearchMedia", new { searchString = "Movies" })</i></li>
+    <li id="cust"> <i>@Html.ActionLink("Новости", "SearchMedia", new { searchString = "News" })</i></li>
+    <li id="cust"> <i>@Html.ActionLink("Частное мнение", "SearchMedia", new { searchString = "Opinion" })</i></li>
+    <li id="cust"> <i>@Html.ActionLink("Здоровье", "SearchMedia", new { searchString = "Health" })</i></li>
+    <li id="cust"> <i>@Html.ActionLink("Достижения Науки", "SearchMedia", new { searchString = "Science" })</i></li>
+    <li id="cust"> <i>@Html.ActionLink("Интересно", "SearchMedia", new { searchString = "Interesting" })</i></li>
+    <li id="cust"> <i>@Html.ActionLink("История", "SearchMedia", new { searchString = "History" })</i></li>
+    <li id="cust"> <i>@Html.ActionLink("Происшествия", "SearchMedia", new { searchString = "Accidents" })</i></li>
+    <li id="cust"> <i>@Html.ActionLink("Удивительное рядом", "SearchMedia", new { searchString = "Amazing" })</i></li>
+    <li id="cust"> <i>@Html.ActionLink("Философия Синтеза", "SearchMedia", new { searchString = "Philosophy_of_Synthesis" })</i></li>
+    <li id="cust"> <i>@Html.ActionLink("Философские Чтения Синтеза", "SearchMedia", new { searchString = "FChS" })</i></li>
+    <li id="cust"> <i>@Html.ActionLink("Юмор", "SearchMedia", new { searchString = "Humour" })</i></li>
+</ul>
+}
+
+@*@foreach (var video in Model.video)
+    {
+                    <div id="media">
+                        <div style="float: right; margin: 10px 10px 25px 25px; height: 100px; width:150px">
+                            <div id="imageContainer">
+                                <img src="~/Images/@Html.Raw(video.ImagePath)" />
+                            </div>
+                        </div>
+                        @*<iframe src=@Html.Raw(video.VideoLink) width="560" height="315" frameborder="0" allowfullscreen="1"></iframe>
+
+                        <p>
+                            <h3>  <a href=@Url.Action("Video", new { id = video.ID })>@Html.Raw(video.Title)</a></h3>
+
+                            @Html.Raw(video.Description)
+
+                        </p>
+                    </div>
+    }*@

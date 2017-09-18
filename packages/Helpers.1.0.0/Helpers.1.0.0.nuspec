@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Helpers</id>
+    <version>1.0.0</version>
+    <title>Helpers</title>
+    <authors>Avraham Y. K.</authors>
+    <owners>Avraham Y. K.</owners>
+    <projectUrl>http://devrecipeshb.blogspot.co.il/2015/12/uploaded-nuget-package-containing.html</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Put all helper/utility methods I often use in one place.
+
+See http://devrecipeshb.blogspot.co.il/2015/12/uploaded-nuget-package-containing.html
+
+for the methods currently provided.</description>
+    <summary>Contains several utilities/helpers I use often I aggregated into one place.</summary>
+    <tags>Helpers</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="EntityFramework" version="6.1.3" />
+        <dependency id="Microsoft.AspNet.Mvc" version="5.2.3" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Xml" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Xml.Linq" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Configuration" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

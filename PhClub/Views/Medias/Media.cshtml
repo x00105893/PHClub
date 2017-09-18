@@ -1,0 +1,81 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = @Model.title;
+}
+
+<h2>@Model.title</h2>
+<br>
+
+<div class="medias" >
+
+    @if (!string.IsNullOrEmpty(@Model.ImagePath))
+    {
+
+        
+        @*<div style="float: none; margin: 10px 10px 25px 25px; height: 100px; width:150px">*@
+            <div id="imageContainer">
+                @*@Html.Raw(Model.ImagePath)*@
+                <img src="~/Images/@Html.Raw(Model.ImagePath)" style='height: 100%; width: 100%;' />
+            </div>
+        @*</div>*@
+    }
+
+        <p>
+            @Html.Raw(Model.description)
+            
+        </p>
+            @if (!string.IsNullOrEmpty(Model.VideoLink))
+            {
+                 <iframe src=@Html.Raw(Model.VideoLink) width="560" height="315" frameborder="1" align="middle" display:block style="margin:auto auto 30px auto"></iframe>
+            }
+
+    <p>
+        @Html.Raw(Model.body)
+    </p>
+
+    <table class="customtable" >
+        <tr>
+            <th>
+                <h5><a href=@Url.Action("SearchMedia", new { searchString = @Html.Raw(Model.TagsEnum) })>@Model.TagsEnum</a></h5>
+                
+            </th>
+            <th>
+                <h5><i>@Html.Raw(Model.NewsDate) </i></h5> 
+            </th>
+            @*<th>
+                <h5>Просмотров:</h5>
+            </th>*@
+            <th>
+                <h5> <a href="@Html.Raw(Model.Source)">Источник</a></h5>
+            </th>
+        </tr>
+    </table>
+</div>
+
+
+@section SideBar{
+    <link href="@Url.Content("~/Content/List.css")" rel="stylesheet" type="text/css" />
+
+    <ul id="list" style:"none">
+
+        <li id="cust"> <i>@Html.ActionLink("Астрономия и космос", "SearchMedia", new { searchString = "Astronomy" })</i></li>
+        <li id="cust"> <i>@Html.ActionLink("Мир вокруг нас", "SearchMedia", new { searchString = "World" })</i></li>
+        <li id="cust"> <i>@Html.ActionLink("Фильмы, видео", "SearchMedia", new { searchString = "Movies" })</i></li>
+        <li id="cust"> <i>@Html.ActionLink("Новости", "SearchMedia", new { searchString = "News" })</i></li>
+        <li id="cust"> <i>@Html.ActionLink("Частное мнение", "SearchMedia", new { searchString = "Opinion" })</i></li>
+        <li id="cust"> <i>@Html.ActionLink("Здоровье", "SearchMedia", new { searchString = "Health" })</i></li>
+        <li id="cust"> <i>@Html.ActionLink("Достижения Науки", "SearchMedia", new { searchString = "Science" })</i></li>
+        <li id="cust"> <i>@Html.ActionLink("Интересно", "SearchMedia", new { searchString = "Interesting" })</i></li>
+        <li id="cust"> <i>@Html.ActionLink("История", "SearchMedia", new { searchString = "History" })</i></li>
+        <li id="cust"> <i>@Html.ActionLink("Происшествия", "SearchMedia", new { searchString = "Accidents" })</i></li>
+        <li id="cust"> <i>@Html.ActionLink("Удивительное рядом", "SearchMedia", new { searchString = "Amazing" })</i></li>
+        <li id="cust"> <i>@Html.ActionLink("Философия Синтеза", "SearchMedia", new { searchString = "Philosophy_of_Synthesis" })</i></li>
+        <li id="cust"> <i>@Html.ActionLink("Философские Чтения Синтеза", "SearchMedia", new { searchString = "FChS" })</i></li>
+        <li id="cust"> <i>@Html.ActionLink("Юмор", "SearchMedia", new { searchString = "Humour" })</i></li>
+    </ul>
+}
+
+
+
+
