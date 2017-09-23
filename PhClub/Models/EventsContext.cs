@@ -15,7 +15,7 @@ namespace PhClub.Models
 
         //public System.Data.Entity.DbSet<PhClub.Models.Video> Videos { get; set; }
 
-        
+
       
     }
  

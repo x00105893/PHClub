@@ -21,5 +21,9 @@ namespace PhClub
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+        void session_Start(object sender, EventArgs e)
+        {
+            Session.Timeout = 200;       
+        }
     }
 }

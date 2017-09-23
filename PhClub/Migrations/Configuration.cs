@@ -5,13 +5,18 @@ namespace PhClub.Migrations
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.Data.SqlClient;
     using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandTimeout = 160; // or any other length of time in seconds
+            /*Any other properties to be modified in the command will come here*/
+            SqlDataReader dataReader = cmd.ExecuteReader();
         }
 
         protected override void Seed(ApplicationDbContext context)
