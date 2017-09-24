@@ -1047,6 +1047,10 @@
     <Content Include="ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="ckeditor\skins\moono-lisa\readme.md" />
+    <None Include="Properties\PublishProfiles\philosophy-club - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\philosophy-club - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\philosophy-club - Web Deploy %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\philosophy-club - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -1151,7 +1155,9 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
