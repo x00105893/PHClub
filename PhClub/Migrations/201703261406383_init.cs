@@ -75,6 +75,37 @@ namespace PhClub.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
+            CreateTable (
+                 "dbo.Events",
+                 c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Title = c.String(),
+                        Date = c.String(),
+                        DayOfEvent = c.String(),
+                        Location = c.String(),
+                        Responsible = c.String(),
+                        Description = c.String(),
+                        Keywords = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+
+                CreateTable(
+                     "dbo.Medias",
+                     c => new
+                     {
+                         Id = c.Int(nullable: false, identity: true),
+                         title = c.String(),
+                         description = c.String(),
+                         body = c.String(),
+                         ImagePath = c.String(),
+                         VideoLink = c.String(),
+                         Source = c.String(),
+                         tags = c.String(),
+                         TagsEnum = c.String(),
+                         NewsDate = c.String(),
+                     })
+                    .PrimaryKey(t => t.Id);
         }
         
         public override void Down()
@@ -94,6 +125,8 @@ namespace PhClub.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Events");
+            DropTable("dbo.Medias");
         }
     }
 }

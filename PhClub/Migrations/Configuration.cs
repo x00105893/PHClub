@@ -13,6 +13,7 @@ namespace PhClub.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            ContextKey = "PhClub.Models.ApplicationDbContext";
             SqlCommand cmd = new SqlCommand();
             cmd.CommandTimeout = 160; // or any other length of time in seconds
             /*Any other properties to be modified in the command will come here*/

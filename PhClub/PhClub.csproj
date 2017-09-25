@@ -29,6 +29,26 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <IncludeIisSettings>true</IncludeIisSettings>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="PhClub-Deployment" Order="1">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=tcp:phclub.database.windows.net,1433%3bInitial Catalog=phclub%3bPersist Security Info=False%3bUser ID=Admin77%3bPassword=18Nov7777%3bConnect Timeout=120%3bEncrypt=True%3bTrustServerCertificate=False" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\PhClub-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="DefaultConnection-Deployment" Order="2">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=%28LocalDb%29\v11.0%3bAttachDbFilename=|DataDirectory|\aspnet-PhClub-20170304023453.mdf%3bInitial Catalog=aspnet-PhClub-20170304023453%3bIntegrated Security=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\DefaultConnection-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
+    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
   </PropertyGroup>
   <PropertyGroup>
     <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
@@ -1047,9 +1067,14 @@
     <Content Include="ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="ckeditor\skins\moono-lisa\readme.md" />
+    <None Include="Properties\PublishProfiles\philosophy-club - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\philosophy-club - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\philosophy-club - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\philosophy-club - Web Deploy %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\philosophy-club - Web Deploy %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\philosophy-club - Web Deploy %285%29.pubxml" />
+    <None Include="Properties\PublishProfiles\philosophy-club - Web Deploy %286%29.pubxml" />
+    <None Include="Properties\PublishProfiles\philosophy-club - Web Deploy %287%29.pubxml" />
     <None Include="Properties\PublishProfiles\philosophy-club - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
